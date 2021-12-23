@@ -1,0 +1,13 @@
+.bookmarkTitle {
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.bookmarkThumbnail {
+	object-fit: cover;
+	object-position: center;
+	border-radius: 0.5rem;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+}

@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Énoncé
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Vous devrez réaliser une application de gestion de bookmarks.
 
-## Available Scripts
+Celle-ci devra supporter deux types de liens :
 
-In the project directory, you can run:
+-   vidéo Vimeo (ex: https://vimeo.com/565486457)
+-   photo Flickr (ex: https://www.flickr.com/photos/feuilllu/45771361701/)
+    L’utilisateur aura une vue principale contenant un formulaire d'ajout et une
+    liste des bookmarks.
 
-### `yarn start`
+Le formulaire d'ajout comporte un champ de saisie pour l'url du lien et un
+bouton de soumission. Lors de la soumission du lien, un appel à l'API
+https://noembed.com/ sera effectué pour obtenir les informations de la vidéo ou
+de la photo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Les informations suivantes seront affichées pour un lien Vimeo :
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-   Aperçu vidéo (si disponible)
+-   URL
+-   Titre de la vidéo
+-   Auteur
+-   Date d'ajout dans l'application (il y a une heure, il y a 2 minutes...)
+-   Date de publication sur Vimeo (le 3 novembre 2020)
+-   Durée (hh:mm:ss)
 
-### `yarn test`
+## Les informations suivantes seront affichées pour un lien Flickr :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   Aperçu photo
+-   URL
+-   Titre de la photo
+-   Auteur
+-   Date d'ajout dans l'application (il y a une heure, il y a 2 minutes...)
+-   Date de publication sur Flickr (le 3 novembre 2020)
+-   Largeur x Hauteur
 
-### `yarn build`
+Un bouton de suppression sera également présent pour chaque lien.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+L'application doit être réalisée avec React et les Hooks
+(https://fr.reactjs.org/docs/hooks-reference.html). L'utilisation de Typescript
+est également un pré-requis.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Seul React est autorisé comme librairie tierce (donc pas de redux, axios,
+moment...).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nous testerons l'application sur la dernière version de Chrome ou Firefox.
 
-### `yarn eject`
+Pour bootstrap l'application, voici quelques outils :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Vite : https://vitejs.dev/guide/#scaffolding-your-first-vite-project Parcel :
+https://parceljs.org/getting-started/webapp/ create-react-app :
+https://create-react-app.dev/docs/adding-typescript/ Il n’est pas demandé de
+s’attarder sur l’aspect graphique de l’application ou sur la persistance des
+bookmarks.
