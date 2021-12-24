@@ -14,10 +14,10 @@ export interface NoEmbedVimeoResponse extends NoEmbedBaseResponse {
 	duration: number;
 }
 
-export interface NoEmbedFlickerResponse extends NoEmbedBaseResponse {
+export interface NoEmbedFlickrResponse extends NoEmbedBaseResponse {
 	provider_name: 'Flickr';
 	width: number;
 	height: number;
 }
 
-export type NoEmbedResponse = NoEmbedVimeoResponse | NoEmbedFlickerResponse;
+export type NoEmbedResponse = NoEmbedVimeoResponse | NoEmbedFlickrResponse;

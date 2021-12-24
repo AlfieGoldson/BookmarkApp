@@ -1,14 +1,14 @@
-import './App.css';
 import { BookmarkItem } from './components/BookmarkItem';
 import { AddBookmarkForm } from './components/AddBookmarkForm';
 import { useBookmarks } from './hooks/useBookmarks';
+import styles from './App.module.css';
 
 export const App = () => {
 	const { addBookmark, bookmarks, removeBookmark } = useBookmarks();
 
 	return (
-		<div className='App'>
-			<h1>Bookmark App</h1>
+		<div className={styles.App}>
+			<h1 className={styles.title}>Bookmark App</h1>
 			<AddBookmarkForm
 				onBookmarkAdded={(bookmark) => {
 					addBookmark(bookmark);
@@ -27,5 +27,3 @@ export const App = () => {
 		</div>
 	);
 };
-
-export default App;

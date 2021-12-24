@@ -1,5 +1,5 @@
-import { useFetchEmbedData } from '../hooks/useFetchEmbedData';
-import { validateEmbedData } from '../lib/validateEmbedData';
+import { ChangeEventHandler, FormEventHandler } from 'react';
+import { useFetchBookmark } from '../hooks/useFetchBookmark';
 import { Bookmark } from '../types/BookmarkTypes';
 import styles from './AddBookmarkForm.module.css';
 import { Loader } from './Loader';
@@ -9,43 +9,55 @@ interface Props {
 }
 
 export const AddBookmarkForm = ({ onBookmarkAdded }: Props) => {
-	const { embedUrl, setEmbedUrl, fetchEmbedData, isLoading } =
-		useFetchEmbedData(
-			'https://www.flickr.com/photos/feuilllu/45771361701/'
-		);
+	const { bookmarkUrl, setBookmarkUrl, fetchBookmark, isLoading } =
+		useFetchBookmark();
 
-	const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setEmbedUrl(e.target.value);
+	const handleUrlChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+		setBookmarkUrl(e.target.value);
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
 
-		fetchEmbedData()
-			.then((data) => validateEmbedData(data))
-			.then((bookmark) => onBookmarkAdded(bookmark));
+		const target = e.target as HTMLFormElement;
+		const isFormValid = target.checkValidity();
+
+		// If the form is invalid, don't submit
+		// Should add a visual feedback for the user
+		if (!isFormValid) return;
+
+		fetchBookmark()
+			.then((bookmark) => onBookmarkAdded(bookmark))
+			.catch((error) => console.error(error));
 	};
 
 	return (
-		<form className={styles.bookmarkForm} onSubmit={handleSubmit}>
-			<label htmlFor='bookmarkUrlInput'>Add a new Bookmark</label>
+		<form
+			className={styles.bookmarkForm}
+			onSubmit={handleSubmit}
+			aria-label='Add Bookmark Form'
+		>
+			<label htmlFor='bookmark-url-input'>Add a new Bookmark</label>
 			<div className={styles.inputContainer}>
 				<input
-					id='bookmarkUrlInput'
+					id='bookmark-url-input'
+					aria-label='Bookmark URL'
 					className={styles.urlInput}
 					type='text'
 					placeholder='Url'
-					value={embedUrl}
+					value={bookmarkUrl}
 					onChange={handleUrlChange}
+					required
 				/>
-				<button
-					className={styles.submitButton}
-					type='submit'
-					disabled={isLoading}
-				>
-					{isLoading ? (
-						<Loader />
-					) : (
+				{isLoading ? (
+					<Loader />
+				) : (
+					<button
+						className={styles.submitButton}
+						type='submit'
+						disabled={isLoading || !bookmarkUrl}
+						aria-label='Submit Bookmark URL'
+					>
 						<svg
 							width='24'
 							height='24'
@@ -58,8 +70,8 @@ export const AddBookmarkForm = ({ onBookmarkAdded }: Props) => {
 								fill='currentColor'
 							/>
 						</svg>
-					)}
-				</button>
+					</button>
+				)}
 			</div>
 		</form>
 	);

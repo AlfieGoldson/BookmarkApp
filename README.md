@@ -1,4 +1,38 @@
-# Énoncé
+# Bookmark App
+
+## Structure
+
+> App Bootstrappée avec `create-react-app`
+
+### Components
+
+-   AddBookmarkForm - Formulaire pour ajouter des Bookmarks
+-   BookmarkItem - Component pour afficher un Bookmark
+-   Loader - Utilisé pendant la requète envoyée à noembed.com
+
+### Custom Hooks
+
+> Abstraction de certaines fonctionnalités pour une meilleure lecture du code.
+
+-   useBookmarks - Fonctionnalités de stockage, addition et suppression des
+    bookmarks
+-   useFetchBookmark - Utilisé pour récupérer les données de l'embed via
+    noembed.com
+
+### Assets Externes
+
+-   Icônes SVG (`Corbeille` et `Plus`): https://coolicons.cool/
+-   Loader CSS: https://loading.io/css
+
+### Styling
+
+CSS Modules supportés par `create-react-app`
+
+### Tests
+
+Utilisation de `jest` et `@testing-library/react` inclus avec `create-react-app`
+
+## Énoncé
 
 Vous devrez réaliser une application de gestion de bookmarks.
 
@@ -14,7 +48,7 @@ bouton de soumission. Lors de la soumission du lien, un appel à l'API
 https://noembed.com/ sera effectué pour obtenir les informations de la vidéo ou
 de la photo.
 
-## Les informations suivantes seront affichées pour un lien Vimeo :
+### Les informations suivantes seront affichées pour un lien Vimeo :
 
 -   Aperçu vidéo (si disponible)
 -   URL
@@ -24,7 +58,7 @@ de la photo.
 -   Date de publication sur Vimeo (le 3 novembre 2020)
 -   Durée (hh:mm:ss)
 
-## Les informations suivantes seront affichées pour un lien Flickr :
+### Les informations suivantes seront affichées pour un lien Flickr :
 
 -   Aperçu photo
 -   URL
@@ -52,8 +86,3 @@ https://parceljs.org/getting-started/webapp/ create-react-app :
 https://create-react-app.dev/docs/adding-typescript/ Il n’est pas demandé de
 s’attarder sur l’aspect graphique de l’application ou sur la persistance des
 bookmarks.
-
-# Assets
-
--   Icons (Corbeille et Add): https://coolicons.cool/
--   Loader: https://loading.io/css

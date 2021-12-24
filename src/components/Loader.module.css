@@ -11,10 +11,10 @@
 	position: absolute;
 	width: 1.5rem;
 	height: 1.5rem;
-	border: 3px solid #fff;
+	border: 3px solid #2e3032;
 	border-radius: 50%;
 	animation: ldsRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-	border-color: #fff transparent transparent transparent;
+	border-color: #2e3032 transparent transparent transparent;
 }
 
 .ldsRing div:nth-child(1) {
