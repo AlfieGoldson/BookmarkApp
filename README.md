@@ -52,3 +52,8 @@ https://parceljs.org/getting-started/webapp/ create-react-app :
 https://create-react-app.dev/docs/adding-typescript/ Il n’est pas demandé de
 s’attarder sur l’aspect graphique de l’application ou sur la persistance des
 bookmarks.
+
+# Assets
+
+-   Icons (Corbeille et Add): https://coolicons.cool/
+-   Loader: https://loading.io/css

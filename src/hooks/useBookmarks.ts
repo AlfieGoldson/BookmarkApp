@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { Bookmark } from '../types/BookmarkTypes';
 
 /**

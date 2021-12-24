@@ -1,9 +1,32 @@
+const months = [
+	'Janvier',
+	'Février',
+	'Mars',
+	'Avril',
+	'Mai',
+	'Juin',
+	'Juillet',
+	'Août',
+	'Septembre',
+	'Octobre',
+	'Novembre',
+	'Décembre',
+];
+
 /**
  * Parse a date string into a Date object.
  * @param date Date to convert
- * @returns  Date object
+ * @returns Date string.
  */
-export const parseDate = (date: string): Date => new Date(date);
+export const parseDate = (dateStr: string) => {
+	const date = new Date(dateStr);
+
+	const year = date.getFullYear();
+	const month = date.getMonth();
+	const day = date.getDate();
+
+	return `${day} ${months[month]} ${year}`;
+};
 
 /**
  * Parse a timestamp into a Date object.

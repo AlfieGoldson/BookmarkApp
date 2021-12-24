@@ -1,4 +1,8 @@
-import { getTimeSinceTimestamp, parseDuration } from '../lib/parseDate';
+import {
+	getTimeSinceTimestamp,
+	parseDate,
+	parseDuration,
+} from '../lib/parseDate';
 import { Bookmark } from '../types/BookmarkTypes';
 import styles from './BookmarkItem.module.css';
 
@@ -16,14 +20,9 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 	};
 
 	return (
-		<article
-			className='bookmark-item'
-			style={{
-				display: 'flex',
-			}}
-		>
+		<article className={styles.bookmarkItem}>
 			<a href={url} target='_blank' rel='noreferrer'>
-				<figure style={{ padding: 0, margin: 0 }}>
+				<figure>
 					<img
 						src={thumbnail.url}
 						alt={title}
@@ -33,20 +32,14 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 					/>
 				</figure>
 			</a>
-			<div
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					height: '100%',
-					flex: '1',
-				}}
-			>
+			<div className={styles.bookmarkInfo}>
 				<h3 className={styles.bookmarkTitle}>
 					<a href={url} target='_blank' rel='noreferrer'>
 						{title}
 					</a>
 				</h3>
 				<p>
+					{uploaded && <>Publié le {parseDate(uploaded)} par </>}
 					<a href={author.url} target='_blank' rel='noreferrer'>
 						{author.name}
 					</a>
@@ -55,16 +48,12 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 					{provider === 'Vimeo'
 						? `${parseDuration(bookmark.duration)}`
 						: `${bookmark.width}x${bookmark.height}`}{' '}
-					• Ajouté il y a {getTimeSinceTimestamp(created)}.
+					• Bookmark ajouté il y a {getTimeSinceTimestamp(created)}.
 				</p>
 			</div>
 			<button
 				onClick={handleRemoveBookmark}
-				style={{
-					backgroundColor: 'transparent',
-					border: 'none',
-					cursor: 'pointer',
-				}}
+				className={styles.bookmarkRemoveButton}
 			>
 				<svg
 					width='24'

@@ -1,7 +1,18 @@
+.bookmarkItem {
+	display: flex;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ccc;
+}
+
 .bookmarkTitle {
 	font-size: 1.25rem;
 	font-weight: bold;
-	margin-bottom: 0.5rem;
+}
+
+.bookmarkInfo {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
 }
 
 .bookmarkThumbnail {
@@ -9,5 +20,18 @@
 	object-position: center;
 	border-radius: 0.5rem;
 	margin-right: 1rem;
-	margin-bottom: 1rem;
+}
+
+.bookmarkRemoveButton {
+	background-color: #ccc;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 0.5rem;
+	width: 3rem;
+}
+
+.bookmarkRemoveButton:hover {
+	background-color: #f04b2e;
+	color: white;
 }
