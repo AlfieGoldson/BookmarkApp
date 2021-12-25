@@ -2,8 +2,8 @@ import {
 	getTimeSinceTimestamp,
 	parseDate,
 	parseDuration,
-} from '../lib/parseDate';
-import { Bookmark } from '../types/BookmarkTypes';
+} from '../../lib/parseDate';
+import { Bookmark } from '../../types/BookmarkTypes';
 import styles from './BookmarkItem.module.css';
 
 interface Props {
@@ -21,7 +21,12 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 
 	return (
 		<article className={styles.bookmarkItem}>
-			<a href={url} target='_blank' rel='noreferrer'>
+			<a
+				href={url}
+				target='_blank'
+				rel='noreferrer'
+				aria-label='Thumbnail Link'
+			>
 				<figure>
 					<img
 						src={thumbnail.url}
@@ -29,18 +34,29 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 						width='160'
 						height='120'
 						className={styles.bookmarkThumbnail}
+						aria-label='Thumbnail'
 					/>
 				</figure>
 			</a>
 			<div className={styles.bookmarkInfo}>
 				<h3 className={styles.bookmarkTitle}>
-					<a href={url} target='_blank' rel='noreferrer'>
+					<a
+						href={url}
+						target='_blank'
+						rel='noreferrer'
+						aria-label='Heading Link'
+					>
 						{title}
 					</a>
 				</h3>
 				<p>
 					{uploaded && <>Publié le {parseDate(uploaded)} par </>}
-					<a href={author.url} target='_blank' rel='noreferrer'>
+					<a
+						href={author.url}
+						target='_blank'
+						rel='noreferrer'
+						aria-label='Author Link'
+					>
 						{author.name}
 					</a>
 				</p>
@@ -54,6 +70,7 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 			<button
 				onClick={handleRemoveBookmark}
 				className={styles.bookmarkRemoveButton}
+				aria-label='Remove Bookmark'
 			>
 				<svg
 					width='24'

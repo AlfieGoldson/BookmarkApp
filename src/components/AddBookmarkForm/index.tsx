@@ -1,8 +1,8 @@
 import { ChangeEventHandler, FormEventHandler } from 'react';
-import { useFetchBookmark } from '../hooks/useFetchBookmark';
-import { Bookmark } from '../types/BookmarkTypes';
+import { useFetchBookmark } from '../../hooks/useFetchBookmark';
+import { Bookmark } from '../../types/BookmarkTypes';
 import styles from './AddBookmarkForm.module.css';
-import { Loader } from './Loader';
+import { Loader } from '../Loader';
 
 interface Props {
 	onBookmarkAdded: (bookmark: Bookmark) => void;
@@ -28,7 +28,10 @@ export const AddBookmarkForm = ({ onBookmarkAdded }: Props) => {
 
 		fetchBookmark()
 			.then((bookmark) => onBookmarkAdded(bookmark))
-			.catch((error) => console.error(error));
+			.catch(() => {
+				// Tell the user that they entered an invalid url
+				// Should add a visual feedback for the user
+			});
 	};
 
 	return (
@@ -49,29 +52,26 @@ export const AddBookmarkForm = ({ onBookmarkAdded }: Props) => {
 					onChange={handleUrlChange}
 					required
 				/>
-				{isLoading ? (
-					<Loader />
-				) : (
-					<button
-						className={styles.submitButton}
-						type='submit'
-						disabled={isLoading || !bookmarkUrl}
-						aria-label='Submit Bookmark URL'
+				{isLoading && <Loader />}
+				<button
+					className={styles.submitButton}
+					type='submit'
+					disabled={isLoading || !Boolean(bookmarkUrl)}
+					aria-label='Submit Bookmark URL'
+				>
+					<svg
+						width='24'
+						height='24'
+						viewBox='0 0 24 24'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
 					>
-						<svg
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M13 13V19H11V13H5V11H11V5H13V11H19V13H13Z'
-								fill='currentColor'
-							/>
-						</svg>
-					</button>
-				)}
+						<path
+							d='M13 13V19H11V13H5V11H11V5H13V11H19V13H13Z'
+							fill='currentColor'
+						/>
+					</svg>
+				</button>
 			</div>
 		</form>
 	);

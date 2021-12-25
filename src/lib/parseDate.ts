@@ -70,10 +70,9 @@ export const parseDuration = (duration: number): string => {
 	const minutes = Math.floor(duration / 60) % 60;
 	const hours = Math.floor(duration / 3600) % 24;
 
-	const parts = [];
-	if (hours) parts.push(hours);
-	if (minutes) parts.push(minutes);
-	if (seconds) parts.push(seconds);
+	const parts = [hours, minutes, seconds].map((part) =>
+		part.toString().padStart(2, '0')
+	);
 
 	return parts.join(':');
 };
