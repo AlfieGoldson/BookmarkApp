@@ -27,10 +27,7 @@ it('renders bookmark', () => {
 
 	expect(thumbnailImage).toBeInTheDocument();
 	expect(thumbnailImage).toHaveAttribute('alt', mockVimeoBookmark.title);
-	expect(thumbnailImage).toHaveAttribute(
-		'src',
-		mockVimeoBookmark.thumbnail.url
-	);
+	expect(thumbnailImage).toHaveAttribute('src', mockVimeoBookmark.thumbnail);
 
 	// Heading
 	const headingLink = screen.getByRole<HTMLAnchorElement>('link', {

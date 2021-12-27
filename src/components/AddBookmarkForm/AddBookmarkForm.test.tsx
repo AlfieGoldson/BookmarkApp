@@ -62,6 +62,7 @@ it('updates the input value and submits the form', async () => {
 	const { input, submitButton, onBookmarkAdded } = setup();
 
 	jest.spyOn(global, 'fetch').mockResolvedValue({
+		ok: true,
 		json: jest.fn().mockResolvedValue(mockVimeoResponse),
 	} as any);
 
@@ -86,6 +87,7 @@ it('renders the loader', async () => {
 	const { input, submitButton } = setup();
 
 	jest.spyOn(global, 'fetch').mockResolvedValue({
+		ok: true,
 		json: jest.fn().mockResolvedValue({}),
 	} as any);
 
@@ -115,6 +117,7 @@ it("doesn't add a bookmark if the url is invalid", async () => {
 	const { input, submitButton, onBookmarkAdded } = setup();
 
 	jest.spyOn(global, 'fetch').mockResolvedValue({
+		ok: true,
 		json: jest.fn().mockResolvedValue({}),
 	} as any);
 

@@ -19,8 +19,6 @@ export const useBookmarks = (): {
 	const addBookmark = (bookmark: Bookmark): boolean => {
 		const existingBookmark = bookmarks.find((bk) => bk.id === bookmark.id);
 
-		console.log({ existingBookmark });
-
 		if (existingBookmark) return false;
 
 		setBookmarks((prevBookmarks) => {

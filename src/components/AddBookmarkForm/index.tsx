@@ -28,7 +28,7 @@ export const AddBookmarkForm = ({ onBookmarkAdded }: Props) => {
 
 		fetchBookmark()
 			.then((bookmark) => onBookmarkAdded(bookmark))
-			.catch(() => {
+			.catch((error) => {
 				// Tell the user that they entered an invalid url
 				// Should add a visual feedback for the user
 			});

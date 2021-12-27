@@ -32,6 +32,19 @@ CSS Modules supportés par `create-react-app`
 
 Utilisation de `jest` et `@testing-library/react` inclus avec `create-react-app`
 
+## Remarques
+
+-   La réponse de l'API noembed n'a pas l'air de contenir de field contenant la
+    date d'upload des images Flickr.
+
+### Pour aller plus loin
+
+-   Ajout d'un feedback visuel quand une erreur survient (mauvais Bookmark URL,
+    problème de connection à l'API etc...)
+-   Ajout d'une meilleure validation des données envoyées par l'API (Utilisation
+    d'un array d'erreurs par exemple) et de tests pour chaque field retournés.
+-   Ajout de tests pour le formatage des dates.
+
 ## Énoncé
 
 Vous devrez réaliser une application de gestion de bookmarks.

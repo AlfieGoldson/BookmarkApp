@@ -29,7 +29,7 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 			>
 				<figure>
 					<img
-						src={thumbnail.url}
+						src={thumbnail}
 						alt={title}
 						width='160'
 						height='120'

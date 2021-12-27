@@ -1,7 +1,7 @@
-import { NoEmbedFlickrResponse } from '../types/APITypes';
+import { NoEmbedResponse } from '../types/APITypes';
 import { BookmarkFlickr } from '../types/BookmarkTypes';
 
-export const mockFlickrResponse: NoEmbedFlickrResponse = {
+export const mockFlickrResponse: NoEmbedResponse = {
 	provider_name: 'Flickr',
 	title: 'Alhambra',
 	url: 'https://www.flickr.com/photos/80210243@N06/7179848249/',
@@ -25,11 +25,7 @@ export const mockFlickrBookmark: BookmarkFlickr = {
 		name: 'COSTAGROUPINTERNATIONAL',
 		url: 'https://www.flickr.com/photos/80210243@N06/',
 	},
-	thumbnail: {
-		url: 'https://live.staticflickr.com/7074/7179848249_e3bc8944c7_q.jpg',
-		width: 150,
-		height: 150,
-	},
+	thumbnail: 'https://live.staticflickr.com/7074/7179848249_e3bc8944c7_q.jpg',
 	created: 1640271473108,
 	provider: 'Flickr',
 	width: 800,

@@ -21,6 +21,8 @@ export const useFetchBookmark = (defaultEmbedUrl?: string) => {
 		const encodedUrl = encodeURIComponent(bookmarkUrl);
 		try {
 			const response = await fetch(`${NOEMBED_BASE_URL}${encodedUrl}`);
+			if (!response.ok) throw new Error('No embed data found.');
+
 			const data = (await response.json()) as NoEmbedResponse;
 			const bookmarkData = validateEmbedData(data);
 
