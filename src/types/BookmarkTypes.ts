@@ -2,7 +2,7 @@ export interface BookmarkBase {
 	id: string;
 	title: string;
 	url: string;
-	thumbnail: string;
+	thumbnail?: string;
 	author: {
 		name: string;
 		url: string;

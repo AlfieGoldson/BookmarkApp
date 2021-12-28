@@ -37,7 +37,7 @@ export const validateEmbedData = (embedData: NoEmbedResponse): Bookmark => {
 			name: embedData.author_name,
 			url: embedData.author_url,
 		},
-		thumbnail: embedData.thumbnail_url ?? '',
+		thumbnail: embedData.thumbnail_url,
 		created: Date.now(),
 	};
 

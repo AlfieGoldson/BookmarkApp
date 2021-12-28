@@ -1,7 +1,7 @@
 import {
 	getTimeSinceTimestamp,
 	parseDate,
-	parseDuration,
+	formatDuration,
 } from '../../lib/parseDate';
 import { Bookmark } from '../../types/BookmarkTypes';
 import styles from './BookmarkItem.module.css';
@@ -29,7 +29,7 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 			>
 				<figure>
 					<img
-						src={thumbnail}
+						src={thumbnail || 'https://via.placeholder.com/160x120'}
 						alt={title}
 						width='160'
 						height='120'
@@ -50,7 +50,7 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 					</a>
 				</h3>
 				<p>
-					{uploaded && <>Publié le {parseDate(uploaded)} par </>}
+					Publié {uploaded && <>le {parseDate(uploaded)} </>}par{' '}
 					<a
 						href={author.url}
 						target='_blank'
@@ -62,7 +62,7 @@ export const BookmarkItem = ({ bookmark, onRemoveBookmark }: Props) => {
 				</p>
 				<p>
 					{provider === 'Vimeo'
-						? `${parseDuration(bookmark.duration)}`
+						? `${formatDuration(bookmark.duration)}`
 						: `${bookmark.width}x${bookmark.height}`}{' '}
 					• Bookmark ajouté il y a {getTimeSinceTimestamp(created)}.
 				</p>

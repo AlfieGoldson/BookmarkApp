@@ -1,5 +1,12 @@
 # Bookmark App
 
+## Fonctionnement
+
+-   `yarn` pour installer les dépendances.
+-   `yarn typecheck` pour vérifier les types.
+-   `yarn test` pour lancer les tests.
+-   `yarn start` pour démarrer l'application.
+
 ## Structure
 
 > App Bootstrappée avec `create-react-app`
@@ -23,6 +30,8 @@
 
 -   Icônes SVG (`Corbeille` et `Plus`): https://coolicons.cool/
 -   Loader CSS: https://loading.io/css
+-   Placeholder IMG (si un bookmark n'a pas de thumbnail):
+    https://via.placeholder.com/160x120
 
 ### Styling
 
@@ -36,6 +45,12 @@ Utilisation de `jest` et `@testing-library/react` inclus avec `create-react-app`
 
 -   La réponse de l'API noembed n'a pas l'air de contenir de field contenant la
     date d'upload des images Flickr.
+-   J'ai ajouté une variable `loading` quand un call à l'API est fait qui
+    désactive le bouton de création de bookmark, pour eviter un "spam" de l'API.
+    Ce serait une feature à disctuter.
+-   Quand un url est déja enregistré dans les bookmarks il n'est simplement pas
+    pris en compte (à discuter s'il serait plus judicieux de mettre à jour les
+    données du bookmark déja présent avec les nouvelles données).
 
 ### Pour aller plus loin
 

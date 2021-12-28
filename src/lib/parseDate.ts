@@ -65,7 +65,12 @@ export const getTimeSinceTimestamp = (timestamp: number) => {
 	return `${years} an${years === 1 ? '' : 's'}`;
 };
 
-export const parseDuration = (duration: number): string => {
+/**
+ * Format a duration in seconds into a human readable string.
+ * @param duration Duration to format
+ * @returns Human readable duration
+ */
+export const formatDuration = (duration: number): string => {
 	const seconds = duration % 60;
 	const minutes = Math.floor(duration / 60) % 60;
 	const hours = Math.floor(duration / 3600) % 24;
